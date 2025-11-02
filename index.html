@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>プロキシリンクオープナー</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+      background: #f0f0f0;
+    }
+    input {
+      width: 300px;
+      padding: 0.5em;
+    }
+    button {
+      padding: 0.5em 1em;
+      margin-left: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>プロキシでリンクを開く</h1>
+  <form id="proxyForm">
+    <input type="text" id="urlInput" placeholder="https://example.com" required>
+    <button type="submit">開く</button>
+  </form>
+
+  <script>
+    document.getElementById('proxyForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const inputUrl = document.getElementById('urlInput').value;
+
+      // プロキシのURL（Cloudflare Workersなどに置き換えてね）
+      const proxyBase = 'https://your-proxy.example.com/';
+      const encodedUrl = encodeURIComponent(inputUrl);
+      const finalUrl = proxyBase + '?url=' + encodedUrl;
+
+      window.open(finalUrl, '_blank');
+    });
+  </script>
+</body>
+</html>
