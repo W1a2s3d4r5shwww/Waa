@@ -7,14 +7,19 @@
     body {
       font-family: sans-serif;
       padding: 2em;
-      background: #f0f0f0;
+      background: #f9f9f9;
+    }
+    h1 {
+      color: #333;
     }
     input {
       width: 300px;
       padding: 0.5em;
+      font-size: 1em;
     }
     button {
       padding: 0.5em 1em;
+      font-size: 1em;
       margin-left: 0.5em;
     }
   </style>
@@ -31,8 +36,8 @@
       e.preventDefault();
       const inputUrl = document.getElementById('urlInput').value;
 
-      // プロキシのURL（Cloudflare Workersなどに置き換えてね）
-      const proxyBase = 'https://your-proxy.example.com/';
+      // Cloudflare Workers のURLに置き換えてね！
+      const proxyBase = 'https://your-worker-name.workers.dev/';
       const encodedUrl = encodeURIComponent(inputUrl);
       const finalUrl = proxyBase + '?url=' + encodedUrl;
 
